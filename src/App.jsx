@@ -4,30 +4,42 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [task, setTask] = useState(" ")
+  const [isImportant, setIsImportant] = useState(false) // 체크박스 상태
+
+  const handleAdd = () => {
+    console.log("추가된 할 일:", task, " /중요:", isImportant) // 콘솔 확인용
+    setTask("") //입력창 비우기
+    setIsImportant(false)
+  }
 
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <h2>할 일 기록하기</h2>
+       <input
+        type="text"
+        value={task}
+        onChange={(e) => setTask(e.target.value)}
+        placeholder = "할 일을 적어주세요!"
+        />
+    
+       <input 
+        type="checkbox"
+        checked={isImportant}
+        onChange={(e) => setIsImportant(e.target.checked)}
+       /> -중요표시 <br /><br />
+       <button onClick={handleAdd}
+        stype={{
+          fontWeight: 'bold',
+          padding: '6px 12px',
+          border: '2px solid #111',
+          borderRadius: '6px'
+        }}
+       >
+      추가</button>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      
     </>
   )
 }
