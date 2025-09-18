@@ -30,7 +30,7 @@ function App() {
         onChange={(e) => setIsImportant(e.target.checked)}
        /> -중요표시 <br /><br />
        <button onClick={handleAdd}
-        stype={{
+        style={{
           fontWeight: 'bold',
           padding: '6px 12px',
           border: '2px solid #111',
