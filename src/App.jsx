@@ -15,7 +15,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className=''>
         <h2>할 일 기록하기</h2>
        <input
         type="text"
@@ -28,10 +28,11 @@ function App() {
         type="checkbox"
         checked={isImportant}
         onChange={(e) => setIsImportant(e.target.checked)}
-       /> -중요표시 <br /><br />
-       <button onClick={handleAdd}
+       /> <div className='mb-12'>-중요표시</div>
+       <button onClick={handleAdd} 
+        className="font-bold"
         style={{
-          fontWeight: 'bold',
+          // fontWeight: 'bold',
           padding: '6px 12px',
           border: '2px solid #111',
           borderRadius: '6px'
